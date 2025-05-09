@@ -20,7 +20,7 @@ def normalize_data(df: pd.DataFrame) -> pd.DataFrame:
     df['vek'] = df['vek'].astype(str).str.replace(',', '.').astype(float)
 
     # Normalizácia pohlavia
-    df['pohavie'] = df['pohavie'].str.strip().str.upper().replace({
+    df['pohlavie'] = df['pohlavie'].str.strip().str.upper().replace({
         'M': 'M', 'MUŽ': 'M', 'MALE': 'M',
         'F': 'F', 'Ž': 'F', 'FEMALE': 'F'
     })
