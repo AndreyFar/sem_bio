@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #eee;
+    border: none;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background-color: #ddd;
+}
+
+.main {
+    flex-grow: 1;
+    padding: 20px;
+}

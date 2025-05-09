@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>HH centrum</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <button onclick="nacitajObsah('home')">Domov</button>
+        <button onclick="nacitajObsah('about_us')">O nás</button>
+        <button onclick="nacitajObsah('contact')">Kontakt</button>
+    </div>
+    <div class="main" id="hlavnyObsah">
+        <h1>Vitaj na stránke!</h1>
+        <p>Vyber si možnosť z menu naľavo.</p>
+    </div>
+</div>
+
+<script>
+    function nacitajObsah(stranka) {
+        fetch(`/content/${stranka}`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('hlavnyObsah').innerHTML = data;
+            })
+            .catch(err => {
+                document.getElementById('hlavnyObsah').innerHTML = "<p>Chyba pri načítaní obsahu.</p>";
+            });
+    }
+</script>
+</body>
+</html>
