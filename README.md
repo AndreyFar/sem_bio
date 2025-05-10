@@ -15,8 +15,7 @@ semestralna praca predmetu Softverove spracovanie biomedicinskych udajov
 **9.5.**
 - priprava GUI pre efektivne zobrazenie informacii z datasetu
 - kniznica streamlit
-
-
+-
 - podstranka - **zoznam pacientov**
 - -> zobrazenie udajov o pacientoch a filter
 
@@ -24,13 +23,11 @@ semestralna praca predmetu Softverove spracovanie biomedicinskych udajov
 - podstranka - **hwe testy**
 - -> percentulane rozdelenie genotypov
 - -> vyhodnotenie ci su genotypy v Hardy-Weinbergovej rovnováhe
-
-
+-
 - podstranka - **prenasaci a predispozicia**
 - -> zoznam pacientov s pridanym atributom 'geneticky_status' (bez_rizika, prenasac, predispouicia)
 - -> pocet prenasacov a pocet s genetickou predispoziciou
-
-
+-
 - podstranka - **diagnozy**
 - -> skumanie suvislosti medzi genetickym rizikom a diagnozami pacientov (Cukrovka, Benigne nadory, Poruchy krvneho systemu)
 - -> vypocet podielu
