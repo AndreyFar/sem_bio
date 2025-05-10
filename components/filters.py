@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 
+
 def filter_patients(df):
     df_filtered = df.copy()
 
