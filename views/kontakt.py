@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 def show():
     st.title("Kontakt")
     st.write("Email: kontakt@hhcentrum.sk")
