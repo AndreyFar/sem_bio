@@ -15,3 +15,4 @@ semestralna praca predmetu Softverove spracovanie biomedicinskych udajov
 **9.5.**
 - priprava GUI pre efektivne zobrazenie informacii z datasetu
 - kniznica streamlit
+- podstranka - **zoznam pacientov** -> zobrazenie udajov o pacientoch a filter
