@@ -9,7 +9,7 @@ semestralna praca predmetu Softverove spracovanie biomedicinskych udajov
 - vytvorenie git repozitaru
 
 - (ULOHA 1) - nacitanie, spracovanie datasetu a odstranenie neuplnych riadkov
-- (ULOHA 2) - vykonanie hwe testov pre kazdu mutaciu - vysledna p-hodnota (pri poslednej mutacii C282Y nie su genotypy v rovnovahe)
+- (ULOHA 2) - vykonanie hwe testov pre kazdu mutaciu
 - (ULOHA 3) - percentualne zastupenie genotypov pre kazdu mutaciu
 
 **9.5.**
