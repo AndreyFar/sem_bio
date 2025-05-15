@@ -29,7 +29,6 @@ def show(df):
     elif vybrany_graf == "Diagnózy vs. genotyp":
         zobraz_diagnozy_vs_genotyp(df)
 
-
 def zobraz_rozdelenie_genotypov(df):
     st.header("Rozdelenie genotypov")
     cols = st.columns(3)  # Vytvoríme 3 stĺpce
