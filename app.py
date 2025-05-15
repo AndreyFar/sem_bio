@@ -1,5 +1,5 @@
 import streamlit as st
-from process.data_processing import load_data, normalize_data, clean_data
+from process.data_processing import load_data, normalize_data, clean_data, check_diagnose_code
 from views import domov, o_nas, kontakt, zoznam_pacientov, hwe_testy, prenasaci_predispozicia, diagnozy, vizualizacia_genotypov_vo_vztahu
 
 st.set_page_config(page_title="HH Centrum", layout="wide")
@@ -31,6 +31,8 @@ st.sidebar.markdown(
 df_raw = load_data("data/SSBU25_data.csv")
 df_normalized = normalize_data(df_raw)
 df_clean = clean_data(df_normalized, verbose=False)
+df_valid = check_diagnose_code(df_clean, verbose=False)
+df = df_valid
 
 # Navigácia
 stranka = st.sidebar.radio(
@@ -49,16 +51,16 @@ elif stranka == "Kontakt":
     kontakt.show()
 
 elif stranka == "Zoznam pacientov":
-    zoznam_pacientov.show(df_clean)
+    zoznam_pacientov.show(df)
 
 elif stranka == "HWE testy":
-    hwe_testy.show(df_clean)
+    hwe_testy.show(df)
 
 elif stranka == "Prenášači a predispozícia":
-    prenasaci_predispozicia.show(df_clean)
+    prenasaci_predispozicia.show(df)
 
 elif stranka == "Diagnózy":
-    diagnozy.show(df_clean)
+    diagnozy.show(df)
 
 elif stranka == "Vizualizácia genotypov vo vztahu":
-    vizualizacia_genotypov_vo_vztahu.show(df_clean)
+    vizualizacia_genotypov_vo_vztahu.show(df)

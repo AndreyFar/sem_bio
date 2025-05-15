@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 
 
 def load_data(file_path: str) -> pd.DataFrame:
@@ -49,7 +50,7 @@ def normalize_data(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def clean_data(df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
+def clean_data(df: pd.DataFrame, verbose = False) -> pd.DataFrame:
     """
     Odstráni všetky riadky, ktoré obsahujú aspoň jednu chýbajúcu hodnotu.
     Voliteľne zobrazí počet odstránených riadkov a detailne uvedie, ktoré stĺpce chýbali.
@@ -60,14 +61,32 @@ def clean_data(df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
     cleaned_df = df.dropna()
 
     if verbose:
-        print(f"Počet riadkov v datasete: {len(df)}")
-        print(f"Odstránených riadkov s chýbajúcimi hodnotami: {removed_count}")
-        print(f"Počet riadkov po čistení: {len(cleaned_df)}")
-
         if removed_count > 0:
             print("\nDetail chýbajúcich údajov v odstránených riadkoch:")
             for idx, row in missing_rows.iterrows():
                 missing_cols = row[row.isnull()].index.tolist()
-                print(f" - Riadok index {idx} (id={row.get('id', 'neznáme')}): chýba v {missing_cols}")
+                print(f" - Riadok index {idx} (id={row.get('id', 'neznáme')}): nan v {missing_cols}")
 
     return cleaned_df
+
+
+def check_diagnose_code(df: pd.DataFrame, verbose = False) -> pd.DataFrame:
+    """
+    Odstráni riadky s nevalidným kódom diagnózy podľa formátu MKCH-10:
+    - veľké písmeno
+    - 2 číslice
+    - voliteľná desatinná časť: bodka + max 2 číslice
+    """
+    def je_validny_kod(kod: str) -> bool:
+        if not isinstance(kod, str):
+            return False
+        return bool(re.fullmatch(r"[A-Z][0-9]{2}(\.[0-9]{1,2})?", kod))
+
+    maska = df["diagnoza_mkch-10"].apply(je_validny_kod)
+
+    if verbose:
+        nevalidne = df[~maska]
+        for idx, row in nevalidne.iterrows():
+            print(f"Nevalidný kód na indexe {idx} – id: {row['id']}, kód: {row['diagnoza_mkch-10']}")
+
+    return df[maska].reset_index(drop=True)
