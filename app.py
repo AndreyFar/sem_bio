@@ -1,6 +1,6 @@
 import streamlit as st
 from process.data_processing import load_data, normalize_data, clean_data, check_diagnose_code
-from views import domov, o_nas, kontakt, zoznam_pacientov, hwe_testy, prenasaci_predispozicia, diagnozy, vizualizacia_genotypov_vo_vztahu
+from views import analyza_diagnoz_cas, domov, o_nas, kontakt, zoznam_pacientov, hwe_testy, prenasaci_predispozicia, diagnozy, vizualizacia_genotypov_vo_vztahu
 
 st.set_page_config(page_title="HH Centrum", layout="wide")
 
@@ -37,7 +37,7 @@ df = df_valid
 # Navigácia
 stranka = st.sidebar.radio(
     "Navigácia",
-    ["Domov", "O nás", "Kontakt", "Zoznam pacientov", "HWE testy", "Prenášači a predispozícia", "Diagnózy", "Vizualizácia genotypov vo vztahu"]
+    ["Domov", "O nás", "Kontakt", "Zoznam pacientov", "HWE testy", "Prenášači a predispozícia", "Diagnózy", "Vizualizácia genotypov vo vztahu", "Analýza diagnóz v čase"]
 )
 
 # Obsah podľa výberu
@@ -64,3 +64,7 @@ elif stranka == "Diagnózy":
 
 elif stranka == "Vizualizácia genotypov vo vztahu":
     vizualizacia_genotypov_vo_vztahu.show(df)
+
+elif stranka == "Analýza diagnóz v čase":
+    analyza_diagnoz_cas.show(df)
+    

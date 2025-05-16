@@ -1,12 +1,41 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Maritn\\source\\repos\\sem_bio\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Maritn\\source\\repos\\sem_bio\\views\\vizualizacia_genotypov_vo_vztahu.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:views\\vizualizacia_genotypov_vo_vztahu.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "vizualizacia_genotypov_vo_vztahu.py",
+              "DocumentMoniker": "C:\\Users\\Maritn\\source\\repos\\sem_bio\\views\\vizualizacia_genotypov_vo_vztahu.py",
+              "RelativeDocumentMoniker": "views\\vizualizacia_genotypov_vo_vztahu.py",
+              "ToolTip": "C:\\Users\\Maritn\\source\\repos\\sem_bio\\views\\vizualizacia_genotypov_vo_vztahu.py",
+              "RelativeToolTip": "views\\vizualizacia_genotypov_vo_vztahu.py",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEZSURBVDhPrZMhjoRAEEU/G2QLJAJBJwgkFyAZNJpTYFBjCIKgJgiOgOQICA6ABNckiDYIJAkHqDW7G3rZySTM/uSLrup6XVVJa1w8CBcl3TvwBbhkLh70cSTatg3btqHr\u002BjEMwzDAGFNi31IAQgjUdQ0pJeI4BmMMbdtiGAbM84yqqo7Xgd\u002BAdV0RBAGiKEKSJEjTFOu6gnMOzjlM04TneccSdQf7vlNd1ySEoKIoqOs6CsPwNPvTHWzbhjzP4fs\u002BsizDOI643W4AAF3XUZYlHMc5lqgdSCmVFxhjNAwD9X1PQghqmubUgQKwLOvUJgByXffP3GmEZVmOxx9N0/Q0pwCu6H8BRHTyKykATdNOfqW3R9De\u002Bc4A8AnhJaveChMRqwAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-05-15T14:35:25.091Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

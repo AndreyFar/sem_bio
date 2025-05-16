@@ -3,11 +3,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np 
 from scipy.interpolate import CubicSpline 
-from views.diagnozy import DG_SKUPINY  # Import DG_SKUPINY
+from components.diagnozy_skupiny import DG_SKUPINY, patri_do_skupiny  # Import DG_SKUPINY
 
 
 def show(df):
     st.title("Vizuálna analýza rozdelenia genotypov")
+    
+    st.write("Názvy stĺpcov v DataFrame:")
+    st.write(df.columns)
 
     # Zoznam dostupných grafov
     grafy = {
@@ -105,7 +108,7 @@ def zobraz_diagnozy_vs_genotyp(df):
 
     # Používame DG_SKUPINY na výber diagnóz
     vybrana_skupina = st.selectbox("Vyber skupinu diagnóz", list(DG_SKUPINY.keys()))
-    pecen_diagnozy = DG_SKUPINY[vybrana_skupina]
+    rozsah = DG_SKUPINY[vybrana_skupina]
 
     st.subheader(f"Analýza pre skupinu diagnóz: {vybrana_skupina}")
     cols = st.columns(3)
@@ -117,7 +120,7 @@ def zobraz_diagnozy_vs_genotyp(df):
 
         with cols[i]:
             st.subheader(f"Mutácia: {mutacia}")
-            df['ma_dg'] = df['diagnoza_mkch-10'].isin(pecen_diagnozy)
+            df['ma_dg'] = df['diagnoza_mkch-10'].apply(lambda kod: patri_do_skupiny(kod, rozsah))
             # Nahradíme True/False za "Má"/"Nemá"
             df['ma_dg_label'] = df['ma_dg'].apply(lambda x: 'Má' if x else 'Nemá')
             pecen_genotyp = df.groupby(['ma_dg_label', mutacia]).size().unstack(fill_value=0)
