@@ -5,7 +5,7 @@ def test_hwe(genotype_series, verbose=True):
     """
     Testuje Hardy-Weinbergovu rovnováhu pre daný genotypový stĺpec.
     """
-    # Spočítaj počet každého genotypu
+    # Spočítanie počtu každého genotypu
     counts = genotype_series.value_counts()
     n_normal = counts.get("normal", 0)
     n_hetero = counts.get("heterozygot", 0)

@@ -1,6 +1,8 @@
 import streamlit as st
+
+from components.urci_riziko import urci_riziko
 from process.data_processing import load_data, normalize_data, clean_data, check_diagnose_code
-from views import analyza_diagnoz_cas, domov, o_nas, kontakt, zoznam_pacientov, hwe_testy, prenasaci_predispozicia, diagnozy, vizualizacia_genotypov_vo_vztahu
+from views import analyza_diagnoz_cas, domov, zoznam_pacientov, hwe_testy, diagnozy, vizualizacia_genotypov_vo_vztahu
 
 st.set_page_config(page_title="HH Centrum", layout="wide")
 
@@ -29,35 +31,27 @@ st.sidebar.markdown(
 
 # Načítanie a spracovanie dát
 df_raw = load_data("data/SSBU25_data.csv")
-df_normalized = normalize_data(df_raw)
-df_clean = clean_data(df_normalized, verbose=False)
-df_valid = check_diagnose_code(df_clean, verbose=False)
+df_clean = clean_data(df_raw, verbose=False)
+df_normalized = normalize_data(df_clean)
+df_valid = check_diagnose_code(df_normalized, verbose=False)
 df = df_valid
+df["geneticky_status"] = df.apply(urci_riziko, axis=1)
 
 # Navigácia
 stranka = st.sidebar.radio(
     "Navigácia",
-    ["Domov", "O nás", "Kontakt", "Zoznam pacientov", "HWE testy", "Prenášači a predispozícia", "Diagnózy", "Vizualizácia genotypov vo vztahu", "Analýza diagnóz v čase"]
+    ["Domov", "Zoznam pacientov", "HWE testy", "Diagnózy", "Vizualizácia genotypov vo vztahu", "Analýza diagnóz v čase"]
 )
 
 # Obsah podľa výberu
 if stranka == "Domov":
     domov.show()
 
-elif stranka == "O nás":
-    o_nas.show()
-
-elif stranka == "Kontakt":
-    kontakt.show()
-
 elif stranka == "Zoznam pacientov":
     zoznam_pacientov.show(df)
 
 elif stranka == "HWE testy":
     hwe_testy.show(df)
-
-elif stranka == "Prenášači a predispozícia":
-    prenasaci_predispozicia.show(df)
 
 elif stranka == "Diagnózy":
     diagnozy.show(df)
