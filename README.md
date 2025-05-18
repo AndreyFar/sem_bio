@@ -1,34 +1,23 @@
 # sem_bio
-semestralna praca predmetu Softverove spracovanie biomedicinskych udajov
+Semestrálna práca predmetu Softvérové spracovanie biomedicínskych údajov
 
-**8.5.**
-- uprava datasetu v exceli
-- vymazanie prazdnych stlpcov
-- zmena nazvov atributov - namiesto medzery '_'
-- prekonvertovanie na .csv format kvoli nacitaniu v python
-- vytvorenie git repozitaru
+# Prototyp interaktívnej analýzy genetických a klinických údajov pre hereditárnu hemochromatózu (HH)
 
-- (ULOHA 1) - nacitanie, spracovanie datasetu a odstranenie neuplnych riadkov
-- (ULOHA 2) - vykonanie hwe testov pre kazdu mutaciu
-- (ULOHA 3) - percentualne zastupenie genotypov pre kazdu mutaciu
+Tento prototyp je webová aplikácia vytvorená pomocou knižnice **Streamlit**, ktorá umožňuje intuitívnu analýzu genetických a klinických údajov pacientov so zameraním na **hereditárnu hemochromatózu (HH)**. Cieľom aplikácie je podporiť lekárov a výskumníkov pri identifikácii geneticky rizikových pacientov a porozumení vzťahov medzi mutáciami a diagnózami.
 
-**9.5.**
-- priprava GUI pre efektivne zobrazenie informacii z datasetu
-- kniznica streamlit
--
-- podstranka - **zoznam pacientov**
-- -> zobrazenie udajov o pacientoch a filter
+Aplikácia umožňuje:
 
-**10.5.**
-- podstranka - **hwe testy**
-- -> percentulane rozdelenie genotypov
-- -> vyhodnotenie ci su genotypy v Hardy-Weinbergovej rovnováhe
--
-- podstranka - **prenasaci a predispozicia**
-- -> zoznam pacientov s pridanym atributom 'geneticky_status' (bez_rizika, prenasac, predispouicia)
-- -> pocet prenasacov a pocet s genetickou predispoziciou
--
-- podstranka - **diagnozy**
-- -> skumanie suvislosti medzi genetickym rizikom a diagnozami pacientov (Cukrovka, Benigne nadory, Poruchy krvneho systemu)
-- -> vypocet podielu
-- -> vykreslenie grafu
+- Spracovanie dát vrátane čistenia, validácie a typovania stĺpcov.
+- Filtrovanie pacientov podľa genetických mutácií (H63D, S65C, C282Y) a klinických diagnóz (MKCH-10).
+- Vizualizáciu podielu genetického rizika v rôznych skupinách diagnóz.
+- Štatistickú analýzu genotypov (Hardy-Weinbergov test rovnováhy).
+- Vytváranie prehľadných grafov a interaktívnych tabuliek.
+
+---
+
+## Spustenie aplikácie
+
+1. V termináli zadajte nasledujúci príkaz pre spustenie aplikácie:
+
+```bash
+streamlit run app.py --server.port 8502
