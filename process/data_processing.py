@@ -3,6 +3,9 @@ import re
 
 
 def load_data(file_path: str) -> pd.DataFrame:
+    """
+    Načítanie údajov z CSV súboru
+    """
     df = pd.read_csv(file_path, delimiter=';', dtype={'id': str})
     df.columns = [col.strip().lower().replace(' ', '_') for col in df.columns]
     return df
@@ -28,6 +31,9 @@ def clean_data(df: pd.DataFrame, verbose=False) -> pd.DataFrame:
 
 
 def normalize_data(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Transformácia údajov do jednotného formátu
+    """
     df = df.copy()
     # ID na int
     df['id'] = df['id'].astype(str)
